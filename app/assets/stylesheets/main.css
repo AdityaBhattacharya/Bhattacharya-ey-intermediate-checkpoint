@@ -69,6 +69,13 @@ h1 {
 	margin: -5px 0 5px 0;
 	vertical-align: 20px;
 }
+.tomatoimage{
+	height: 40px;
+	float:left;
+	align-content:center;
+	padding-top:10px;
+	padding-right:10px;
+	}
 
 .tomato-chart {
 	background: white;
@@ -156,7 +163,7 @@ h1 {
 	-webkit-animation-delay: -1.0s;
 	animation-delay: -1.0s;
 }
-  
+
 @-webkit-keyframes sk-bounce {
 	0%, 100% { -webkit-transform: scale(0.0) }
 	50% { -webkit-transform: scale(1.0) }

@@ -1,24 +1,32 @@
 <section class="container-fluid">
-    <tomato-loading-indicator 
-      ng-if="vm.loading" 
-      text="Fetching tomato data..."
-    />
-    
+    <tomato-loading-indicator ng-if="vm.loading" text="Fetching tomato data..." />
+
     <div class="row">
         <div class="col-xs-12 col-sm-6">
-            <tomato-chart 
-              ng-if="!vm.loading" 
-              data="vm.tomatoes" 
-              type="Bar" 
-              header="Tomato Yield by Season"
-              horizontal-axis-label="Seasons"
-              vertical-axis-label="Ounces"
-            />
+            <tomato-chart ng-if="!vm.loading" data="vm.tomatoes" type="Bar" header="Tomato Yield by Season" horizontal-axis-label="Seasons"
+                vertical-axis-label="Ounces" />
         </div>
         <div class="col-xs-12 col-sm-6">
-            <!-- Add tomato chart directive -->
+            <tomato-chart ng-if="!vm.loading" data="vm.tomatoes" type="Line" header="Total Tomato Revenue by Season" horizontal-axis-label="Seasons"
+                vertical-axis-label="Ounces" />
         </div>
     </div>
+         
+
+
+    <uib-tabset>
+        <uib-tab index="$index" ng-repeat="gridData in vm.farms track by $index" heading="{{gridData.Title}}" select="vm.setActiveTabIndex($index)" />
+        <tomato-grid
+            ng-if="vm.activeTabIndex === $index"
+            ng-repeat="gridData in vm.farms track by $index"
+            data="vm.tomatoes"
+            list-View="gridData.Title"
+        >
+        </tomato-grid>
+    </uib-tabset>
+
+          
+    
 </section>
 
 <!-- Add tomato grid directive -->
